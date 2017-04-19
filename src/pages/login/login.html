@@ -1,0 +1,57 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label floating>
+            <p>Digite seu e-mail</p>
+          </ion-label>
+          <ion-input type="text" [(ngModel)]="credencial.email"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label floating>
+            <p>Digite sua senha</p>
+          </ion-label>
+          <ion-input type="password" [(ngModel)]="credencial.senha"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <br />
+    <ion-row>
+      <button ion-button full color="light" (click)="loginComCredencial()"><ion-icon name="md-log-in"></ion-icon>Login</button>
+    </ion-row>
+    <br />
+    <ion-row>
+      <button ion-button full color="light" (click)="loginFacebook()"><ion-icon name="logo-facebook"></ion-icon><p> Login com o Facebook</p></button>
+    </ion-row>
+    <br />
+    <ion-row>
+      <button ion-button full color="light" (click)="loginComGoogle()"><ion-icon name="logo-googleplus"></ion-icon> Login com o google</button>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer>
+  <ion-grid>
+    <ion-row>
+      <ion-col width-50>
+        <button ion-button clear full color="dark">Registrar-se</button>
+      </ion-col>
+      <ion-col width-50>
+        <button ion-button clear full color="dark">Sobre</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

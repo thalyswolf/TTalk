@@ -1,0 +1,23 @@
+page-perfil {
+  .img-perfil{
+    width:60px;
+    height: 60px;
+  }
+
+  .geral {
+    width:65px;
+    height: 65px;    
+  }
+  .ocupado{
+    background-color: red;
+  }
+  .disponivel{
+    background-color: green;
+  }
+  .ausente{
+    background-color: yellow;
+  }
+  .invisivel{
+    background-color: white;
+  }
+}

@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-navbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-15>
+          <div class=" geral ocupado" *ngIf="ocupado()">
+            <img full class="img-perfil" src="{{foto}}" alt="">
+          </div>
+          <div class=" geral disponivel" *ngIf="disponivel()">
+            <img full class="img-perfil" src="{{foto}}" alt="">
+          </div>
+          <div class=" geral ausente" *ngIf="ausente()">
+            <img full class="img-perfil" src="{{foto}}" alt="">
+          </div>
+          <div class=" geral invisivel" *ngIf="invisivel()">
+            <img full class="img-perfil" src="{{foto}}" alt="">
+          </div>
+        </ion-col>
+        <ion-col col-50>
+          <h1><p class="text-header">{{nome}}</p></h1>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+      </ion-row>
+    </ion-grid>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-90>
+        <ion-list>
+          <ion-item>
+            <ion-label full>Status</ion-label>
+            <ion-select [(ngModel)]="status">
+              <ion-option value="d">Disponivel</ion-option>
+              <ion-option value="o">Ocupado</ion-option>
+              <ion-option value="a">Ausente</ion-option>
+              <ion-option value="i">Invisivel</ion-option>
+            </ion-select>
+  </ion-item>
+</ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-80>
+        <ion-item>
+          <ion-label floating>
+            <p class="text-body">Digite uma frase:</p>
+          </ion-label>
+          <ion-input [(ngModel)]="frase" value="{{frase}}"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-50>
+        <ion-item>
+          <ion-label floating>
+            <p class="text-body">Digite seu usuário:</p>
+          </ion-label>
+          <ion-input [(ngModel)]="usuario" value="{{usuario}}"> </ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-50>
+        <ion-item>
+          <ion-input [(ngModel)]="email" value="{{email}}"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <br />
+    <ion-row>
+      <button ion-button clear full color="dark" (click)="save()"> <ion-icon name="md-paper"></ion-icon>Salvar as alterações</button>
+    </ion-row>
+  </ion-grid>
+</ion-content>
