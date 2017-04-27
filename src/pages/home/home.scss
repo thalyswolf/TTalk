@@ -17,28 +17,8 @@ page-home {
   .text-body{
     font-style: italic;
   }
-  .ocupado{
+  .geral {
     width:65px;
     height: 65px;
-    background-color: red;
-    border-radius: 50%;
-  }
-  .disponivel{
-    width:65px;
-    height: 65px;
-    background-color: green;
-    border-radius: 50%;
-  }
-  .ausente{
-    width:65px;
-    height: 65px;
-    background-color: yellow;
-    border-radius: 50%;
-  }
-  .invisivel{
-    width:65px;
-    height: 65px;
-    background-color: white;
-    border-radius: 50%;
   }
 }

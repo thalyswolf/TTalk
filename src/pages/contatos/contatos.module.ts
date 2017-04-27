@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { IonicModule } from 'ionic-angular';
+
 import { Contatos } from './contatos';
 
 @NgModule({
@@ -7,7 +7,7 @@ import { Contatos } from './contatos';
     Contatos,
   ],
   imports: [
-  
+
   ],
   exports: [
     Contatos

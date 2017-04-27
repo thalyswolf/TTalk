@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { Localizacao } from '../localizacao/localizacao';
 /**
  * Generated class for the Conversa page.
  *
@@ -20,5 +20,7 @@ export class Conversa {
   ionViewDidLoad() {
     console.log('ionViewDidLoad Conversa');
   }
-
+  sendPosition(){
+    this.navCtrl.push(Localizacao);
+  }
 }

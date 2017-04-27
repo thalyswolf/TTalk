@@ -18,6 +18,11 @@ import firebase from 'firebase';
 import {AuthProviders, AuthMethods, AngularFire} from 'angularfire2';
 import { AngularFireModule } from 'angularfire2';
 import { PerfilProvider } from '../providers/perfil';
+import { Localizacao } from '../pages/localizacao/localizacao';
+import {GoogleMaps} from '@ionic-native/google-maps';
+import {UserProvider} from "../providers/user";
+import { GooglePlus } from '@ionic-native/google-plus';
+import { User } from '../model/user';
 const config = {
     apiKey: "AIzaSyCTxHj-z84CaTiM0qzshN6C7XQtHjKINm0",
     authDomain: "ttalk-b059c.firebaseapp.com",
@@ -35,7 +40,8 @@ const config = {
     Perfil,
     Contatos,
     AdicionarAmigo,
-    Conversa
+    Conversa,
+    Localizacao
   ],
   imports: [
     BrowserModule,
@@ -52,7 +58,8 @@ const config = {
     Perfil,
     Contatos,
     AdicionarAmigo,
-    Conversa
+    Conversa,
+    Localizacao
   ],
   providers: [
     StatusBar,
@@ -60,7 +67,11 @@ const config = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FacebookLogin,
     Facebook,
-    PerfilProvider
+    PerfilProvider,
+    GoogleMaps,
+    UserProvider,
+    GooglePlus,
+    User
   ]
 })
 export class AppModule {

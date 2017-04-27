@@ -18,6 +18,8 @@ export class Login {
   constructor(public navCtrl: NavController, public navParams: NavParams, public fbLogin:FacebookLogin, public app:IonicApp) {
     this.fbLogin.loginSuccessEventEmitter.subscribe(
       user => this.navCtrl.setRoot(Contatos));
+
+      this.fbLogin.logout();
   }
 
   ionViewDidLoad() {

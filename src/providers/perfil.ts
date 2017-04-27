@@ -3,12 +3,7 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import firebase from 'firebase';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
-/*
-  Generated class for the Perfil provider.
 
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular 2 DI.
-*/
 @Injectable()
 export class PerfilProvider {
 
@@ -17,13 +12,8 @@ export class PerfilProvider {
   }
 
   save(id, nome, email, frase, status){
-    let dados = [{
-      nome:nome,
-      email:email,
-      frase:frase,
-      status:status
-    }];
-    window.localStorage.setItem('dados', JSON.stringify(dados));
+
+    window.localStorage.setItem('frase', JSON.stringify(frase));
     let ref = firebase.database().ref();
       ref.child('usuarios').child(id).update({
         nome:nome,

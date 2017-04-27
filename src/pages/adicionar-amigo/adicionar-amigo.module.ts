@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { IonicModule } from 'ionic-angular';
+
 import { AdicionarAmigo } from './adicionar-amigo';
 
 @NgModule({
@@ -7,7 +7,7 @@ import { AdicionarAmigo } from './adicionar-amigo';
     AdicionarAmigo,
   ],
   imports: [
-  
+
   ],
   exports: [
     AdicionarAmigo
