@@ -1,31 +1,53 @@
 <ion-header>
-  <ion-navbar>
-    <ion-grid>
-      <ion-row>
-        <ion-col col-3>
-            <div class="geral">
-              <img full class="img-perfil" src="{{usuario.foto}}" alt="">
-            </div>
-        </ion-col>
-        <ion-col col-6>
-          <h1><p>{{usuario.nome}}</p></h1>
-        </ion-col>
-        <ion-col col-3>
-          <button ion-button full clear menuToggle><ion-icon color="dark" name="md-contacts" item-left></ion-icon></button>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-
-      </ion-row>
-    </ion-grid>
-
-  </ion-navbar>
+  <header [title]="nome" [photo]="foto"></header>
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="view" color="secondary">
+      <ion-segment-button value='conversas' color="secondary">
+        <ion-icon name="chatboxes" color="secondary"></ion-icon> Conversas</ion-segment-button>
+      <ion-segment-button value='grupos' color="secondary">
+        <ion-icon name="people" color="secondary"></ion-icon> Grupos</ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-label>
-    <p class="text-body">Conversas</p>
-  </ion-label>
+<ion-content class="background">
+  <div [ngSwitch]='view'>
+    <div *ngSwitchCase="'conversas'">
+      <!--<body-conversas></body-conversas>-->
+      <ion-list *ngFor="let c of chats | async" no-lines>
+        <button ion-item clear (click)="onChat(c)">
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <div class="div-home">
+                <h1>{{c.chat.nome}}</h1>
+                <p>{{c.chat.timestamp|date:'dd/MM/y H:mm '}} -- {{c.chat.lastMessage}}</p>
+                </div>
+                </ion-col>
+            </ion-row>
 
-  <button type="button" name="button" (click)="logout()">Loug</button>
+      </ion-grid>
+    </button>
+      </ion-list>
+
+    </div>
+
+    <div *ngSwitchCase="'grupos'">
+      <ion-list *ngFor="let g of grupos | async" no-lines>
+        <button ion-item clear (click)="onGrupo(g)">
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <div class="div-home">
+                <h1>{{g.grupo.nome}}</h1>
+                <p>{{g.grupo.timestamp|date:'dd/MM/y H:mm '}}</p>
+                </div>
+                </ion-col>
+            </ion-row>
+
+      </ion-grid>
+    </button>
+      </ion-list>
+    </div>
+  </div>
 </ion-content>

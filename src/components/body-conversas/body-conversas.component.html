@@ -1,0 +1,18 @@
+<!-- Generated template for the BodyConversas component -->
+<div>
+  <ion-list *ngFor="let c of chats | async">
+        <button ion-item clear (click)="onChat(c)">
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <div class="div-home">
+                <h1>{{c.chat.nome}}</h1>
+                <p>{{c.chat.timestamp|date:'dd/MM/y H:mm '}} -- {{c.chat.lastMessage}}</p>
+                </div>
+                </ion-col>
+            </ion-row>
+            
+      </ion-grid>
+    </button>
+    </ion-list>
+</div>

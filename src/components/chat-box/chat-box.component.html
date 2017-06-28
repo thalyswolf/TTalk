@@ -1,0 +1,30 @@
+<div>
+
+  <div *ngIf="isFromSender">
+    <ion-grid>
+      <ion-row>
+
+        <div class="balao">
+          <p>{{message.msg.text}}</p>
+          <p class="timestamp"> {{message.msg.date | date: 'H:mm'}}</p>
+        </div>
+        <img src="{{message.msg.senderPhoto}}" class="box-img" *ngIf="isGrupo">
+      </ion-row>
+    </ion-grid>
+
+  </div>
+  <div *ngIf="!isFromSender">
+    <ion-grid>
+      <ion-row>
+        <img src="{{message.msg.senderPhoto}}" class="box-img" *ngIf="isGrupo">
+        <div class="balao1">
+          <p>{{message.msg.text}}</p>
+          <p class="timestamp" > {{message.msg.date | date: 'H:mm'}}</p>
+        </div>
+        
+      </ion-row>
+    </ion-grid>
+</div>
+
+
+<!--:class="text" [ngClass]="{'sender-background':isFromSender}"-->

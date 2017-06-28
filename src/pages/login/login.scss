@@ -1,3 +1,24 @@
 page-login {
-
+    .back{
+        // background: url(../../assets/img/tela_login.jpg);
+        background: linear-gradient(#9ACD32, #3CB371);
+    }
+    .logo{
+        margin-top: 60px;
+        margin-bottom: 80px;
+        color: black;
+        background: rgba(255,255,255, 0.5);
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 2px 2px gray;
+        h1{
+            font-size: 70px;
+            text-align: center;
+        }
+    }
+    .botao{
+        border-radius: 5px;
+        box-shadow: 2px 2px gray;
+        background: rgba(255,255,255, 0.5);
+    }
 }

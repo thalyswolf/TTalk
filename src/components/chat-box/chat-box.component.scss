@@ -1,0 +1,51 @@
+chat-box {
+    display: flex;
+    margin-bottom: 0px;
+    p{
+        margin-top:2px;
+        margin-bottom: 1px;
+    }
+    .timestamp{
+        font-size: 0.7em;
+        margin-bottom:3px; 
+    }
+    .balao1 {
+        background:#E5E5EA;
+        padding:5px;
+        color:#000;
+        display:inline-block;
+        position:relative;
+        margin-bottom: 4px;
+    }
+    .balao1:before {
+        content:'';
+        position:absolute;
+        left:-10px;
+        top:0;
+        border-bottom: 10px solid transparent;
+        border-right:10px solid #E5E5EA;
+    }
+    .balao {
+        background:#00C741;
+        padding:5px;
+        color:#fff;
+        display:inline-block;
+        position:relative;
+        margin-bottom: 4px;
+    }
+    .balao:before {
+        content:'';
+        position:absolute;
+        right:-10px;
+        top:0;
+        border-bottom: 10px solid transparent;
+        border-left:10px solid #00C741;
+    }
+    .box-img{
+        width:45px;
+        height: 45px;
+        border-radius:100px;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+}

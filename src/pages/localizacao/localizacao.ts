@@ -38,7 +38,7 @@ export class Localizacao {
       }
       let markOption:MarkerOptions = {
         position:latlng,
-        title:'posto aqui'
+        title:''
       }
       let marker = map.addMarker(markOption).then((marker:Marker)=>{
         marker.showInfoWindow();

@@ -1,37 +1,72 @@
-import { User } from '../../model/user';
-import {FacebookLogin} from "../../providers/facebook-login";
+import { GrupoService } from './../../providers/grupo-service';
+
+import { Conversa } from './../conversa/conversa';
+import { ChatModel } from './../../model/chat';
+import { ChatService } from './../../providers/chat-service';
+import { UserService } from './../../providers/user-service';
+import { User } from './../../model/user';
+
+
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Login } from '../login/login';
-import { TabsPage } from '../tabs/tabs';
-import { AngularFire, FirebaseListObservable } from 'angularfire2';
-import {UserProvider} from "../../providers/user";
-import * as $ from 'jquery';
+
+import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
+
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-  data:any;
-  dados:FirebaseListObservable<any>;
-  teste;
+  currentUser:User;
+  nome:string;
+  foto:string;
+  chats:FirebaseListObservable<any>;
+  grupos:FirebaseListObservable<any>;
+  view:string = 'conversas';
+  constructor(
+    public userService:UserService,
+    public chatService:ChatService,
+    public navCtrl:NavController,
+    public grupoService:GrupoService
+  ){
+    
+  }
 
-  constructor(public navCtrl: NavController, public fb:FacebookLogin, public angFire:AngularFire, public usr:UserProvider,public usuario:User) {
+  ionViewDidLoad(){
+    this.userService.currentUser
+      .first()
+      .subscribe((currentUser: User) =>{
+        this.currentUser = currentUser; 
+        this.nome = currentUser.nome;
+        this.foto = currentUser.foto;
+        this.chats = this.chatService.chats;
+        this.grupos = this.grupoService.grupos;
+      })
+      
+  }
 
-    this.onViewLoad();
+  onChat(c):void{
+    this.navCtrl.push(Conversa,{
+      currentUser:this.currentUser,
+      recipientUser:c.chat,
+      friendId:c.$key,
+      refChat:c.chat.refChat,
+      tipo:"conversa",
+      userId:this.currentUser.$key,
+      foto:c.chat.foto
+    })
   }
-  onViewLoad(){
-    this.usuario.setId(JSON.parse(window.localStorage.getItem('id')));
-    this.usuario.setNome(JSON.parse(window.localStorage.getItem('nome')));
-    this.usuario.setFoto (JSON.parse(window.localStorage.getItem('foto')));
-    this.usuario.setEmail (JSON.parse(window.localStorage.getItem('email')));
-    this.usuario.setStatus( window.localStorage.getItem('status'));
-    this.usuario.setFrase (window.localStorage.getItem('frase'));
-    window.localStorage.setItem('currentUser', JSON.stringify(this.usuario));
+  onGrupo(g):void{
+    this.navCtrl.push(Conversa,{
+      currentUser:this.currentUser,
+      dataGroup:g.grupo,
+      nomeGrupo:g.grupo.nome,
+      refGrupo:g.grupo.refGrupo,
+      tipo:"grupo",
+      userId:this.currentUser.$key
+    })
   }
-  logout(){
-    window.localStorage.removeItem('id');
-    this.fb.logout();
-    this.navCtrl.setRoot(Login)
-  }
+
 }

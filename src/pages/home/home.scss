@@ -21,4 +21,28 @@ page-home {
     width:65px;
     height: 65px;
   }
+  .img-chat{
+    width:30px;
+    height: 30px;
+    border-radius:50%;
+  }
+  .nome-chat{
+    font-size: 12px;
+  }
+  .message-chat{
+    font-size: 9px;
+  }
+  .div-home{
+    h1{
+      font-style: bold;
+      font-size: 13px;
+    }
+    p{
+      font-size: 11px;
+    }
+  }
+  .background{
+    top:20px;
+    background: #F0FFFF;
+  }
 }
